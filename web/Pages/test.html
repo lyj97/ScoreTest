@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, minimum-scale=0.9， user-scalable=1" />
+    <title>测试页</title>
+    <style type="text/css">
+        .main{
+            text-align: center; /*让div内部文字居中*/
+            background-color: #c3f7ff;
+            border-radius: 20px;
+            width: 425px;
+            height: 790px;
+            margin: auto;
+            /*position: absolute;*/
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        function getPar(par){
+            //获取当前URL
+            var local_url = document.location.href;
+            //获取要取得的get参数位置
+            var get = local_url.indexOf(par +"=");
+            if(get == -1){
+                return false;
+            }
+            //截取字符串
+            var get_par = local_url.slice(par.length + get + 1);
+            //判断截取后的字符串是否还有其他get参数
+            var nextPar = get_par.indexOf("&");
+            if(nextPar != -1){
+                get_par = get_par.slice(0, nextPar);
+            }
+            document.getElementById("code").innerHTML = get_par;
+            return get_par;
+        }
+        //判断一个url是否可以访问
+        function IsLoad(_url,fun){
+            $.ajax({
+                url:_url,
+                type:"get",
+                success:function(){
+                    //说明请求的url存在，并且可以访问
+                    if($.isFunction(fun)){
+                        fun(true);
+                    }
+                },
+                statusCode:{
+                    404:function(){
+                        //说明请求的url不存在
+                        if($.isFunction(fun)){
+                            fun(false);
+                        }
+                    }
+                }
+            });
+        }
+        function close_window() {
+            var xx = navigator.userAgent.indexOf("Firefox") > -1 ?
+                function () {
+                    location.href = "about:blank";
+                }
+                :
+                function () {
+                    window.opener = null;
+                    window.open("", "_self", "");
+                    window.close();
+                }
+        }
+        function clear() {
+            var no_use_input = document.getElementById("no_use_input");
+            no_use_input.value = "";
+        }
+
+    </script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        // $(document).ready(function(){
+        //     $("#b01").click(function(){
+        //         htmlobj=$.ajax({url:"/index11.html",async:false});
+        //         $("#test").html(htmlobj.responseText);
+        //     });
+        // });
+        // $.getJSON("http://127.0.0.1:8001/query?t=score&u=54160907&p=225577", { t:"score", u:"54160907", p:"225577" }, function(json){
+        //     alert("JSON Data: " + json);
+        // });
+        $(document).ready(function(){
+            $("#b02").click(function(){
+                htmlobj="跳转中，请稍后...";
+                $("#test").html(htmlobj);
+                // IsLoad('10.60.65.8',function(res){
+                //     if(res){
+                //         window.location.href="upload.jsp"
+                //     }
+                //     else {
+                //         htmlobj="请在校园网环境下访问。";
+                //         $("#test").html(htmlobj);
+                //     }
+                // });
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "http://uims.jlu.edu.cn/ntms/",
+                    data: "",
+                    success: function() {
+                        window.location.href="upload.jsp"
+                    },
+                    error: function() {
+                        htmlobj="请在校园网环境下访问。";
+                        $("#test").html(htmlobj);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body onload="getPar('code')">
+<div class="main">
+    <div>
+        <div style="color:#ff4472; background-color: #2ec0ce; border-radius: 20px" id="code">测试页</div>
+        <button id="b01" type="button">改变内容</button>
+        <button id="b02" type="button">跳转</button>
+    </div>
+    <div id="test" style="width: 425px">
+    </div>
+    <div style="background-color: #bdbfff; border-radius: 20px">
+        <a href="index.jsp">回到首页</a>
+    </div>
+</div>
+</body>
+</html>

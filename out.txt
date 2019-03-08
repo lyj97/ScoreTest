@@ -1,0 +1,32 @@
+"C:\Program Files\Java\jdk-11.0.2\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.3\lib\idea_rt.jar=11150:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\out\production\SchoolServer;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-collections-3.1.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\httpclient-cache-4.5.6.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\jna-4.4.0.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\httpclient-4.5.6.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-beanutils-1.7.0.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\json-lib-2.1-jdk15.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\httpmime-4.5.6.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-logging-1.2.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\httpclient-win-4.5.6.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\jna-platform-4.4.0.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-codec-1.10.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\ezmorph-1.0.3.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\jsoup-1.11.3.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-lang-2.5.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\fluent-hc-4.5.6.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\httpcore-4.4.10.jar;C:\Users\lu\OneDrive - mails.jlu.edu.cn\桌面\JAVA\SchoolServer\lib\commons-logging.jar" TOOL.ClassSetTest
+post_getHeader
+post_login
+post_getcurrentuserinfo
+post_getInformation
+{"studentID":"266662","password":"df6ed15de8e106a01c28a41b2954a4b6","code":"","state":0,"type":"approve","message":{"college":"软件学院","major":"软件工程","grade":"2016","name":"陆亚军"},"userID":"54160907"}
+post_getselectedcourse
+removed:	classSet:96	name:周三第5,6节{第2-9周}
+removed:	classSet:480	name:周三第5,6,7,8节{第10-13周}
+removed:	classSet:6	name:周四第1,2节{第1-8周}
+removed:	classSet:30	name:周五第1,2,3,4节{第1-4周}
+removed:	classSet:30	name:周三第1,2,3,4节{第2-9周}
+removed:	classSet:24	name:周四第3,4节{第1-12周}
+removed:	classSet:3584	name:周三第9,10,11节{第13-16周}
+removed:	classSet:480	name:周一第5,6,7,8节{第1-8周|双周}
+removed:	classSet:96	name:周五第5,6节{第2-9周}
+removed:	classSet:6	name:周二第1,2节{第1-8周}
+removed:	classSet:384	name:周二第7,8节{第10-17周}
+removed:	classSet:3584	name:周二第9,10,11节{第2-12周}
+removed:	classSet:3584	name:周三第9,10,11节{第2-12周}
+removed:	classSet:30	name:周五第1,2,3,4节{第13-16周}
+removed:	classSet:224	name:周日第5,6,7节{第2-12周}
+classSet:480	name:周一第5,6,7,8节{第9-16周}
+classSet:96	name:周五第5,6节{第10-17周}
+classSet:3584	name:周四第9,10,11节{第2-12周}
+classSet:384	name:周四第7,8节{第10-17周}
+classSet:224	name:周六第5,6,7节{第2-12周}
+classSet:6	name:周三第1,2节{第10-17周}
+classSet:24	name:周二第3,4节{第1-12周}
+classSet:30	name:周一第1,2,3,4节{第9-16周}
+
+Process finished with exit code 0

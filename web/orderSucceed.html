@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1， user-scalable=1" />
+        <title>预约成功</title>
+        <style type="text/css">
+            .main{
+                text-align: center; /*让div内部文字居中*/
+                background-color: #c3f7ff;
+                border-radius: 20px;
+                width: 400px;
+                height: 200px;
+                margin: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        </style>
+        <script>
+            function getPar(par){
+                //获取当前URL
+                var local_url = document.location.href;
+                //获取要取得的get参数位置
+                var get = local_url.indexOf(par +"=");
+                if(get == -1){
+                    return false;
+                }
+                //截取字符串
+                var get_par = local_url.slice(par.length + get + 1);
+                //判断截取后的字符串是否还有其他get参数
+                var nextPar = get_par.indexOf("&");
+                if(nextPar != -1){
+                    get_par = get_par.slice(0, nextPar);
+                }
+                document.getElementById("page_count").innerHTML = "文件页数：" + get_par + "页";
+                document.getElementById("money").innerHTML = (get_par * 0.15).toFixed(2);
+                return get_par;
+            }
+        </script>
+    </head>
+<body onload="getPar('page')">
+<div class="main">
+    <div>
+        文件上传成功<br>
+        您的<b>预约打印</b>文件已收到<br><br>
+        您<b>付款后</b>文件将会被打印
+        <br/><br/>
+        请您付款时务必<br/>
+        <b style="color:red">备注提交文件时使用的用户名</b>
+        <br/><br/>
+        <div style="color:red" id="page_count"><br/></div>
+        <br/>
+        <div style="background-color: #bdbfff">
+            <br/>
+            👇请扫码支付 <b>
+                <a style="color:red" id="money"></a>
+            </b>元。👇
+            <br/>
+            <br/>
+        </div>
+        <br/><br/>
+        <img src="img_0166.jpg" width="400"/>
+        <img src="1544441897543.jpg" width="400"/>
+        <img src="1544440571337.jpg" width="400"/>
+    </div>
+    <div style="background-color: #bdbfff; border-radius: 20px">
+        您现在可以<a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭此页面</a><br>
+        或<a href="index.jsp">回到首页</a>。
+    </div>
+</div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

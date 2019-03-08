@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, minimum-scale=0.9， user-scalable=1" />
+    <title>认证成功</title>
+    <style type="text/css">
+        .main{
+            text-align: center; /*让div内部文字居中*/
+            background-color: #c3f7ff;
+            border-radius: 20px;
+            width: 425px;
+            height: 265px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        function getPar(par){
+            //获取当前URL
+            var local_url = document.location.href;
+            //获取要取得的get参数位置
+            var get = local_url.indexOf(par +"=");
+            if(get == -1){
+                return false;
+            }
+            //截取字符串
+            var get_par = local_url.slice(par.length + get + 1);
+            //判断截取后的字符串是否还有其他get参数
+            var nextPar = get_par.indexOf("&");
+            if(nextPar != -1){
+                get_par = get_par.slice(0, nextPar);
+            }
+            document.getElementById("code").innerHTML = get_par;
+            return get_par;
+        }
+        function close_window() {
+            var xx = navigator.userAgent.indexOf("Firefox") > -1 ?
+                function () {
+                    location.href = "about:blank";
+                }
+                :
+                function () {
+                    window.opener = null;
+                    window.open("", "_self", "");
+                    window.close();
+                }
+        }
+        function copy()
+        {
+            var Url2=document.getElementById("code").innerText;
+            var oInput = document.createElement('input');
+            oInput.value = Url2;
+            document.body.appendChild(oInput);
+            oInput.select(); // 选择对象
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            oInput.className = 'oInput';
+            oInput.style.display='none';
+            alert('复制成功\n' +
+                '因浏览器支持情况不同，如发现未复制，请手动长按复制。');
+        }
+        function clear() {
+            var no_use_input = document.getElementById("no_use_input");
+            no_use_input.value = "";
+            getPar('code');
+        }
+
+    </script>
+</head>
+<body onload="clear()">
+<div class="main">
+    <div>
+        <div style="color: #11d640; font-size: 20px">
+        <b>认证成功</b><br>
+        </div>
+        您的授权码
+        <div style="color:#ff4472; background-color: #0da4ff" id="code"><br/></div>
+        <br/>
+    </div>
+    <div style="background-color: #bdbfff; border-radius: 20px">
+        👉<a onclick="copy()" style="color: #0da4ff">点这里复制授权码</a>👈
+        <br/>
+        使用直接打印功能时，请将您的<a style="color: #ff4472">教学号</a>作为<a style="color: #3779d4">用户名</a>
+        <br/>
+        授权码<a style="color: #ff4472">仅限获取当日</a>有效
+    </div>
+    <b style="color: #ff4472">【请确保您的授权码合理使用，否则将被永久加入黑名单】</b>
+    <br/><br/>
+    <div style="background-color: #bdbfff; border-radius: 20px">
+        <a href="index.jsp">回到首页</a>
+    </div>
+    <br/>
+    <div>
+        <input id="no_use_input" type="text" placeholder="可以在这里试一哈，授权码复制成功了没..." style="width: 423px; border-radius: 20px; text-align: center; opacity:0.7;">
+    </div>
+</div>
+</body>
+</html>
