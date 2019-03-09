@@ -51,6 +51,32 @@
             z-index:1002;
             overflow: auto;
         }
+        .black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=88);
+        }
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 55%;
+            height: 55%;
+            padding: 20px;
+            border: 10px solid orange;
+            background-color: white;
+            z-index:1002;
+            overflow: auto;
+        }
     </style>
     <style type="text/css">
 
@@ -117,6 +143,8 @@
                 }
         }
     </script>
+    <script src="js/jquery.tiaoxing.min.js" type="text/javascript"></script>
+    <script src="js/progressBar.js"></script>
 </head>
 <body onload="getPar('page')" style="background: #c3f7ff">
 <div class="main">
@@ -157,15 +185,25 @@
         </table>
 
     </div>
-    <div>
-
-    </div>
+    <div id="fade" class="black_overlay"></div>
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/overhang.min.js"></script>
 <script>
     var num = 0;
+    var opened = 0;
+    $(function(){
+    })
+    function openDialog(num){
+        opened = num;
+        document.getElementById('score_' + num).style.display='block';
+        document.getElementById('fade').style.display='block';
+    }
+    function closeDialog(){
+        document.getElementById('score_' + opened).style.display='none';
+        document.getElementById('fade').style.display='none';
+    }
     function showInf() {
         if(num === 0) {
             $('body').overhang({

@@ -162,12 +162,28 @@ public class getScore extends HttpServlet {
                         for (int i = 0; i < scoreJSONArray.size(); i++) {
                             try {
                                 JSONArray percent_json = scoreJSONArray.getJSONObject(i).getJSONObject("percent").getJSONArray("items");
+//                                for (int j = 0; j < percent_json.size(); j++) {
+//                                    percent += percent_json.getJSONObject(j).getString("label");
+//                                    percent += " : ";
+//                                    percent += percent_json.getJSONObject(j).getString("percent").length() > 5 ? percent_json.getJSONObject(j).getString("percent").substring(0, 5) : percent_json.getJSONObject(j).getString("percent");
+//                                    percent += "% \\n ";
+//                                }
+                                percent += "<div id=\"score_" + i + "\" class=\"white_content\">" +
+                                        "<div>" +
+                                        scoreJSONArray.getJSONObject(i).getString("subject") +
+                                        "</div>" +
+                                        "<div class=\"zzsc\">";
+
                                 for (int j = 0; j < percent_json.size(); j++) {
                                     percent += percent_json.getJSONObject(j).getString("label");
-                                    percent += " : ";
+                                    percent += "<div class=\"div\" w=\"";
                                     percent += percent_json.getJSONObject(j).getString("percent").length() > 5 ? percent_json.getJSONObject(j).getString("percent").substring(0, 5) : percent_json.getJSONObject(j).getString("percent");
-                                    percent += "% \\n ";
+                                    percent += "\"></div>";
                                 }
+
+                                percent += "</div>" +
+                                        "<a href = \"javascript:void(0)\" onclick = \"closeDialog()\" style=\"align-self: center; width: max-content\">关闭</a>" +
+                                        "</div> ";
                                 hasPercent = true;
                             } catch (Exception e) {
 //                                e.printStackTrace();
@@ -181,9 +197,14 @@ public class getScore extends HttpServlet {
                                     "</td><td>" + scoreJSONArray.getJSONObject(i).getString("score") +
                                     "</td><td><input ";
                             if(hasPercent) {
-                                message += "type=\"button\" value=\"成绩分布\" onclick=\"javascript:alert(\'" +
-                                        percent +
-                                        "\')\">" +
+                                message += "type=\"button\" value=\"成绩分布\" onclick=" +
+//                                        "\"javascript:alert(\'" +
+//                                        percent +
+//                                        "\')" +
+
+                                        "\"openDialog('" + i + "')\"" +
+
+                                        "\">" +
                                         "</td></tr>";
                             }
                             else{
