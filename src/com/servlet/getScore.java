@@ -169,7 +169,7 @@ public class getScore extends HttpServlet {
 //                                    percent += "% \\n ";
 //                                }
                                 percent += "<div id=\"score_" + i + "\" class=\"white_content\">" +
-                                        "<div>" +
+                                        "<div style=\"text-align: left\">" +
                                         scoreJSONArray.getJSONObject(i).getString("subject") +
                                         "</div>" +
                                         "<div class=\"zzsc\">";
@@ -205,7 +205,8 @@ public class getScore extends HttpServlet {
                                         "\"openDialog('" + i + "')\"" +
 
                                         "\">" +
-                                        "</td></tr>";
+                                        "</td></tr>" +
+                                        percent;
                             }
                             else{
                                 message += "disabled=\"disabled\" type=\"button\" value=\"暂无成绩分布\" onclick=\"javascript:alert(\'" +

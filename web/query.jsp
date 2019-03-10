@@ -98,7 +98,7 @@
         <div id="web_bg" style="background-image: url(/img/bg/6.jpg);"></div>
         <!--其他代码 ... -->
     </div>
-    <form action="${pageContext.request.contextPath }/score" enctype="multipart/form-data" method="post" onsubmit="return notify()">
+    <form id="form" action="${pageContext.request.contextPath }/score" enctype="multipart/form-data" method="post" onsubmit="return notify()">
 
         <table border="0" style="text-align: center; align-items: center">
 
@@ -121,7 +121,7 @@
             <tr></tr>
 
             <tr>
-                <td><input type="submit" border="0" value="查询" style="background-color:#0ce0e0; width: 340px; height: 40px; border-radius: 10px; font-weight: bold"></td>
+                <td><input id="input_submit" type="submit" border="0" value="查询" style="background-color:#0ce0e0; width: 340px; height: 40px; border-radius: 10px; font-weight: bold"></td>
             </tr>
 
         </table>
@@ -144,7 +144,7 @@
             primary: '#e2c4f0',
             accent: '#8edffc',
             duration: 5,
-            message: '成绩查询（实时刷新）测试中，欢迎体验 o((⊙﹏⊙))o '
+            message: '教务系统不负众望的又GG了 o((⊙﹏⊙))o '
         });
     }, 500);
 
@@ -190,14 +190,14 @@
 
     }
 
-    $("input").focus(function() {
-        $(this).parent("label").addClass("active");
-    });
-    $("input").blur(function() {
-        if ($(this).val() == "") {
-            $(this).parent("label").removeClass("active");
-        }
-    })
+    // $("input").focus(function() {
+    //     $(this).parent("label").addClass("active");
+    // });
+    // $("input").blur(function() {
+    //     if ($(this).val() == "") {
+    //         $(this).parent("label").removeClass("active");
+    //     }
+    // })
 
 </script>
 </body>

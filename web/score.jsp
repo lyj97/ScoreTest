@@ -12,6 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1， user-scalable=1" />
     <title>查询结果</title>
     <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        body{
+            position: relative;
+        }
+        /*遮罩层显示时body的样式*/
+        .notScroll {
+            overflow: hidden;
+        }
         .main{
             text-align: center; /*让div内部文字居中*/
             background-color: #c3f7ff;
@@ -27,12 +37,12 @@
         }
         .black_overlay{
             display: none;
-            position: absolute;
-            top: 0%;
-            left: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.36);
             z-index:1001;
             -moz-opacity: 0.8;
             opacity:.80;
@@ -40,35 +50,9 @@
         }
         .white_content {
             display: none;
-            position: absolute;
-            top: 25%;
-            left: 25%;
-            width: 55%;
-            height: 55%;
-            padding: 20px;
-            border: 10px solid orange;
-            background-color: white;
-            z-index:1002;
-            overflow: auto;
-        }
-        .black_overlay{
-            display: none;
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index:1001;
-            -moz-opacity: 0.8;
-            opacity:.80;
-            filter: alpha(opacity=88);
-        }
-        .white_content {
-            display: none;
-            position: absolute;
-            top: 25%;
-            left: 25%;
+            position: fixed;
+            top: 15%;
+            left: 15%;
             width: 55%;
             height: 55%;
             padding: 20px;
@@ -185,6 +169,7 @@
         </table>
 
     </div>
+    <div style="text-align: left"></div>
     <div id="fade" class="black_overlay"></div>
 </div>
 <script src="js/jquery.min.js"></script>
@@ -196,11 +181,13 @@
     $(function(){
     })
     function openDialog(num){
+        $('body,html').addClass('notScroll');
         opened = num;
         document.getElementById('score_' + num).style.display='block';
         document.getElementById('fade').style.display='block';
     }
     function closeDialog(){
+        $('body,html').removeClass('notScroll');
         document.getElementById('score_' + opened).style.display='none';
         document.getElementById('fade').style.display='none';
     }
